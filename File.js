@@ -5,6 +5,6 @@ document.querySelectorAll('.question').forEach(question => {
       options.forEach(o => o.style.pointerEvents = "none");
       const isCorrect = option.getAttribute('data-correct') === 'true';
       option.classList.add(isCorrect ? 'correct' : 'incorrect');
-    });
+    }); 
   });
 });
