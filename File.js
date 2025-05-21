@@ -1,12 +1,10 @@
-function checkAnswer(element, isCorrect) {
-  const siblings = element.parentElement.children;
-  for (let i = 0; i < siblings.length; i++) {
-    siblings[i].onclick = null; // disable after first click
-  }
-  if (isCorrect) {
-    element.classList.add('correct');
-  } else {
-    element.classList.add('incorrect');
-  }
-}
-w
+document.querySelectorAll('.question').forEach(question => {
+  const options = question.querySelectorAll('li');
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      options.forEach(o => o.style.pointerEvents = "none");
+      const isCorrect = option.getAttribute('data-correct') === 'true';
+      option.classList.add(isCorrect ? 'correct' : 'incorrect');
+    });
+  });
+});
